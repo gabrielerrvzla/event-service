@@ -1,0 +1,8 @@
+# BASE
+pydantic==2.9.2
+pydantic-settings==2.6.0
+kafka-python==2.0.2
+sentry-sdk==2.18.0
+minio==7.2.9
+celery==5.4.0
+redis==5.2.0

@@ -1,0 +1,27 @@
+services:
+
+  consumer:
+    container_name: consumer
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: >
+      sh -c "python -m service"
+    volumes:
+      - ./service:/app/service
+    env_file:
+      - .env
+
+  worker:
+    container_name: worker
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: >
+      sh -c "celery -A service.worker.app worker -l info"
+    volumes:
+      - ./worker:/app/worker
+    env_file:
+      - .env
+    environment:
+      - WORKER=true
