@@ -23,5 +23,3 @@ services:
       - ./worker:/app/worker
     env_file:
       - .env
-    environment:
-      - WORKER=true
